@@ -15,6 +15,10 @@ services:
       database__connection__database: ghost
     depends_on:
       - db
+    volumes:
+      - ./ghost-data/images:/var/lib/ghost/content/images
+      #- ./ghost-data/logs:/var/lib/ghost/content/logs
+      - ./config.production.json:/var/lib/ghost/config.production.json
 
   db:
     image: mysql:5.7
